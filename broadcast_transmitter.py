@@ -5,6 +5,9 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QLabel, QPushB
 
 
 class BroadcastTransmitter(QMainWindow):
+    """
+        class with GUI for broadcasting/sending a message
+    """
     def __init__(self):
         # setting up gui and it's widgets
         super().__init__()
@@ -93,10 +96,11 @@ class BroadcastTransmitter(QMainWindow):
         msg = self.msg_field.text()
         self.socket.sendto(msg.encode(), (self.broadcast_ip, self.port))
 
-    '''
-        simple check if ip field has string that consists of 4 numbers in range [0, 255] separated by dot
-    '''
+
     def _check_data(self):
+        """
+            simple check if ip field has string that consists of 4 numbers in range [0, 255] separated by dot
+        """
         b = self.broadcast_ip.split(".")
         if len(b) != 4:
             raise ValueError

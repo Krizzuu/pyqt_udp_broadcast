@@ -4,7 +4,11 @@ import sys
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal, QMutex, QThread
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QLabel, QPushButton, QTextBrowser
 
+
 class UDPReceiver(QObject):
+    """
+        class responsible for udp receiving process
+    """
     new_data = pyqtSignal(str)
     stopped = pyqtSignal()
 
@@ -48,7 +52,12 @@ class UDPReceiver(QObject):
         self.stopped.emit()
 
 
+
 class UDPReceiverWindow(QMainWindow):
+    """
+        class responsible for displaying GUI of application
+        and creating UDPReceiver for given IP and port
+    """
     def __init__(self):
         # setting up gui and it's widgets
         super().__init__()
