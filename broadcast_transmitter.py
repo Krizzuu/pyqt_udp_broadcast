@@ -56,9 +56,11 @@ class BroadcastTransmitter(QMainWindow):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
+        # filling text fields with constant data
         from constants import BROADCAST_IP_ADDRESS, PORT
         self.ip_field.setText(BROADCAST_IP_ADDRESS)
         self.port_field.setText(str(PORT))
+        # declaring ip and port field
         self.broadcast_ip = ""
         self.port = 0
 

@@ -91,11 +91,11 @@ class UDPReceiverWindow(QMainWindow):
         self._receiver = None
         self._thread = None
 
-
-        # declaring ip and port
+        # filling text fields with constant data
         from constants import RECEIVER_IP_ADDRESS, PORT
         self.ip_field.setText(RECEIVER_IP_ADDRESS)
         self.port_field.setText(str(PORT))
+        # declaring ip and port
         self.ip = ""
         self.port = 0
 
